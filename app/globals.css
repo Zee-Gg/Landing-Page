@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-textMain font-sans antialiased overflow-x-hidden;
+  background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+    linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-attachment: fixed;
+}
+
+/* Vignette effect to soften the grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, transparent 20%, #ffffff 90%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-primary text-white rounded-full font-bold hover:bg-primaryHover transition-all duration-300 hover:-translate-y-1;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 border border-border bg-white/80 backdrop-blur-sm text-textMain rounded-full font-semibold hover:bg-surfaceHighlight hover:border-primary/50 transition-all duration-300;
+}
+
+.section-title {
+  @apply text-3xl md:text-5xl font-bold text-center text-textMain mb-6 tracking-tight;
+}
+
+.section-subtitle {
+  @apply text-lg text-textMuted text-center mb-16 max-w-2xl mx-auto;
+}
+
+.card {
+  @apply bg-surface border border-border rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow;
+}
